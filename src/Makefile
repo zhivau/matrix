@@ -23,19 +23,19 @@ style:
 	clang-format -i *.c *.h tests/*.c tests/*.h
 
 clean:
-	rm -rf *.o *.g* *.info *.out report *.a *.dSYM debug *.txt ./tests/make* ./report/*
+	rm -rf *.o *.g* *.info *.out report *.a *.dSYM debug *.txt ./tests/make* ./report/* gcov_report
 
 test: $(NAME).a
 	$(TEST_COMPILE)
 	-./a.out
-
+# -gcov tests/*.c
 gcov_report: clean
 	${CC} -c $(CFLAGS) ${GCOV} ${NAME}.c
 	ar rc $(NAME).a $(NAME).o
 	ranlib $(NAME).a
 	${CC} -o $@ ${GCOV} tests/*.c ${NAME}.a ${CHECK_FLAGS}
 	-./$@
-	-gcov tests/*.c
+	-gcov *.gcno *.gcda
 	lcov -t ${NAME} -o ${NAME}.info -c -d .
 	genhtml -o report ${NAME}.info;
 
