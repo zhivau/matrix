@@ -15,22 +15,22 @@ int s21_create_matrix(int rows, int columns, matrix_t *result) {
   return error;
 }
 
-void s21_input_matrix(matrix_t *A) {
-  for (int i = 0; i < A->rows; i++) {
-    for (int j = 0; j < A->columns; j++) {
-      scanf("%lf", &A->matrix[i][j]);
-    }
-  }
-}
+// void s21_input_matrix(matrix_t *A) {
+//   for (int i = 0; i < A->rows; i++) {
+//     for (int j = 0; j < A->columns; j++) {
+//       scanf("%lf", &A->matrix[i][j]);
+//     }
+//   }
+// }
 
-void s21_print_matrix(matrix_t *A) {
-  for (int i = 0; i < A->rows; i++) {
-    for (int j = 0; j < A->columns; j++) {
-      printf("%lf ", A->matrix[i][j]);
-    }
-    printf("\n");
-  }
-}
+// void s21_print_matrix(matrix_t *A) {
+//   for (int i = 0; i < A->rows; i++) {
+//     for (int j = 0; j < A->columns; j++) {
+//       printf("%lf ", A->matrix[i][j]);
+//     }
+//     printf("\n");
+//   }
+// }
 
 void s21_remove_matrix(matrix_t *A) {
   if (A->matrix) {
